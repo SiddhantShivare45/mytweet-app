@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+
+  <section class="products-section">
+    <div class="products-heading">
+      {% if query %}
+        <h2>Search Results for "{{ query }}"</h2>
+        <p>{{ tweets|length }} tweet{{ tweets|length|pluralize }} found</p>
+      {% else %}
+        <h2>Tweets</h2>
+        <p>Browse our latest items</p>
+      {% endif %}
+    </div>
+
+    <div class="products-action">
+      <a href="{% url 'tweet_create' %}" class="btn-create">
+        <i class="bi bi-plus-lg"></i> Create Tweet
+      </a>
+      {% if query %}
+        <a href="{% url 'tweet_list' %}" class="btn-clear-search">
+          <i class="bi bi-x-lg"></i> Clear Search
+        </a>
+      {% endif %}
+    </div>
+
+    {% if tweets %}
+    <div class="products-grid">
+     {% for tweet in tweets %}
+      <div class="product-card">
+        {% if tweet.photo %}
+        <img src="{{tweet.photo.url}}" alt="Tweet image">
+        {% endif %}
+        <div class="card-body">
+          <p class="product-description">{{tweet.text}}</p>
+          <div class="card-actions">
+            {% if tweet.user == user %}
+            <a href="{% url 'tweet_edit' tweet.id %}" class="btn-edit"><i class="bi bi-pencil-square"></i>Edit</a>
+            <a href="{% url 'tweet_delete' tweet.id %}" class="btn-delete"><i class="bi bi-trash"></i>Delete</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <div class="no-results">
+      <i class="bi bi-search"></i>
+      <h3>No tweets found</h3>
+      <p>{% if query %}Try searching with different keywords.{% else %}Be the first to create a tweet!{% endif %}</p>
+    </div>
+    {% endif %}
+
+  </section>
+</main>
+
+{% endblock content %}

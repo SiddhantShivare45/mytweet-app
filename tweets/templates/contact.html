@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="products-section">
+  <div class="products-heading">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you</p>
+  </div>
+
+  <div class="form-wrapper">
+    <div class="form-card">
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="form-actions">
+          <button type="submit" class="btn-edit"><i class="bi bi-send-fill"></i> Send Message</button>
+          <a href="{% url 'tweet_list' %}" class="btn-delete"><i class="bi bi-arrow-left"></i> Back</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

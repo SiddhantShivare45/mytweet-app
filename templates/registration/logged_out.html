@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="products-section">
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h2>Logged Out</h2>
+      <p>You have been logged out. Want to come back? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="products-section">
+  <div class="products-heading">
+    <h2>About Us</h2>
+    <p>Get to know more about MyTweet</p>
+  </div>
+
+  <div class="form-wrapper">
+    <div class="form-card">
+      <p style="color:#34495e; font-size:0.95rem; line-height:1.7; margin-bottom:1rem;">
+        Welcome to <strong>MyTweet</strong> — a simple and modern platform built for sharing your thoughts,
+        moments, and ideas with the world. Whether it's a quick update or something you've been wanting
+        to share, MyTweet gives you a clean and easy way to post it.
+      </p>
+      <p style="color:#34495e; font-size:0.95rem; line-height:1.7; margin-bottom:1rem;">
+        This project was built using <strong>Django</strong>, focusing on simplicity, responsiveness,
+        and a clean user experience across all devices.
+      </p>
+      <p style="color:#34495e; font-size:0.95rem; line-height:1.7;">
+        Have questions or feedback? Feel free to reach out through our
+        <a href="{% url 'contact' %}">Contact</a> page.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
