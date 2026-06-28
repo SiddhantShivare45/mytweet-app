@@ -5,6 +5,8 @@ from django.dispatch import receiver
 
 @receiver(user_logged_in)
 def on_user_login(sender, request, user, **kwargs):
+    if getattr(request, '_skip_login_message', False):
+        return
     messages.success(request, f'Welcome back, {user.username}!')
 
 
