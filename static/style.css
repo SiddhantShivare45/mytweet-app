@@ -673,7 +673,6 @@ footer {
 .no-results p {
   font-size: 0.95rem;
 }
-
 /* ══════════════════════════════════════
    AUTH FORMS (Login / Register / Logged Out)
 ══════════════════════════════════════ */
@@ -711,6 +710,8 @@ footer {
 
 .auth-card form label {
   display: block;
+  text-align: left;
+  width: 100%;
   font-size: 0.85rem;
   font-weight: 600;
   color: #34495e;
@@ -760,7 +761,7 @@ footer {
 }
 
 .auth-card p:last-of-type,
-.auth-card>p {
+.auth-card > p {
   text-align: center;
   font-size: 0.9rem;
   color: #6b7c93;
@@ -1061,7 +1062,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-
   .form-card,
   .confirm-card {
     padding: 1.6rem 1.2rem;
@@ -1164,7 +1164,6 @@ footer {
     opacity: 0;
     transform: translateX(40px);
   }
-
   to {
     opacity: 1;
     transform: translateX(0);
